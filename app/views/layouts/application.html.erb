@@ -9,8 +9,18 @@
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-	
-<%= yield %>
+	<nav>
+    <div>
+      <ul>
+        <li><%= link_to "People", people_path %></li>
+        <li><%= link_to "Businesses", businesses_path %></li>
+      </ul>
+    </div>
+  </nav>
+
+<div>
+	<%= yield %>
+</div>
 
 </body>
 </html>

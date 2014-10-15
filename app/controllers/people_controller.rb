@@ -3,17 +3,14 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
-    respond_with(@people)
   end
 
   def show
     @person = Person.find(params[:id])
-    respond_with(@person)
   end
 
   def new
     @person = Person.new
-    respond_with(@person)
   end
 
   def edit
@@ -26,7 +23,6 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to people_path, notice: "The person has been successfully created"
     end
-    respond_with(@person)
   end
 
   def update
@@ -39,7 +35,6 @@ class PeopleController < ApplicationController
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-    respond_with(@person)
   end
 
   private

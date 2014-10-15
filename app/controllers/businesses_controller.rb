@@ -3,17 +3,14 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.all
-    respond_with(@businesses)
   end
 
   def show
     @business = Business.find(params[:id])
-    respond_with(@business)
   end
 
   def new
     @business = Business.new
-    respond_with(@business)
   end
 
   def edit
@@ -25,7 +22,6 @@ class BusinessesController < ApplicationController
     if @business.save
       redirect_to businesses_path, notice: "The business has been successfully created"
     end
-    respond_with(@business)
   end
 
   def update
@@ -33,13 +29,11 @@ class BusinessesController < ApplicationController
     if @business.update_attributes(business_params)
       redirect_to businesses_path, notice: "The business has been updated"
     end
-    respond_with(@business)
   end
 
   def destroy
     @business = Business.find(params[:id])
     @business.destroy
-    respond_with(@business)
   end
 
   private

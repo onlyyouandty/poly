@@ -5,5 +5,32 @@
   <%= @business.name %>
 </p>
 
+<div>
+  <%= link_to "New Interaction", new_business_interaction_path(@business) %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Created On</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <% if @business.interactions.count > 0 %>
+    <% @business.interactions.each do |interaction| %>
+      <tr>
+        <td><%= interaction.description %></td>
+        <td><%= time_ago_in_words interaction.created_at %> ago</td>
+        <td><%= link_to "Edit", edit_business_interaction_path(@business, interaction), class:"btn btn-default" %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td>No interactions found for this business.  Click the 'New Interaction' button to create a new interaction.</td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
