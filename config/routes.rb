@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  # resources :interactions
+  
+  resources :businesses do
+    resources :interactions, only: [:new, :create, :edit, :update]
+  end
+
+  resources :people do
+    resources :interactions, only: [:new, :create, :edit, :update]
+  end
+
   devise_for :users
-  root to: "home#index"
+  root to: "people#index"
 
   get 'pages/about'
 

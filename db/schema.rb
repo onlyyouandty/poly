@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015104050) do
+ActiveRecord::Schema.define(version: 20141015111913) do
+
+  create_table "businesses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interactions", force: true do |t|
+    t.string   "description"
+    t.integer  "interaction_id"
+    t.string   "interaction_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interactions", ["interaction_id", "interaction_type"], name: "index_interactions_on_interaction_id_and_interaction_type"
+
+  create_table "people", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
