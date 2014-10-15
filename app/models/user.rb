@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
          belongs_to :meta, polymorphic: true
+         accepts_nested_attributes_for :meta
 end

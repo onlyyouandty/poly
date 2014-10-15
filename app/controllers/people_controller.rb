@@ -19,7 +19,6 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    
     if @person.save
       redirect_to people_path, notice: "The person has been successfully created"
     end
@@ -43,6 +42,6 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:first_name, :last_name)
+      params.require(:person).permit(:first_name, :last_name, user_attributes: [ :id, :email, :name, :password ])
     end
 end
