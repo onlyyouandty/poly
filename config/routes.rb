@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stu_work_experiences
+
   # resources :interactions
   
   resources :businesses do

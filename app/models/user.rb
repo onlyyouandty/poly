@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
          belongs_to :meta, polymorphic: true
          accepts_nested_attributes_for :meta
+
+  #The different user types defined in an array the %w[admin student profile] is ruby shorthand for ["admin", "student", "company"]
+  META_TYPES = %w[person business]
+
 end
